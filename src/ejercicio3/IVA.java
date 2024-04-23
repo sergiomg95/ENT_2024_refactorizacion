@@ -2,18 +2,8 @@ package ejercicio3;
 
 public class IVA extends Impuesto{
 
-	public IVA(double impuesto) {
-		super(impuesto);
-	}
-
-	public double totalIVA(double impuesto, double ingresos) {
-		
-		impuesto=calcularIVA(ingresos);
-		return impuesto;
-		
-	}
-	private double calcularIVA(double ingresos) { 
-
+	@Override
+	public double calcular(double ingresos) {
 		double impuesto; 
 
 		if (ingresos < 10000) { 
@@ -28,7 +18,10 @@ public class IVA extends Impuesto{
 
 		 impuesto = ingresos * 0.20; 
 
-		}
+		} 
+
 		return impuesto; 
 	}
+
+
 }

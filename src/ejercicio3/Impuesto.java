@@ -3,8 +3,6 @@ package ejercicio3;
 public abstract class Impuesto {
 
 	 
-	 public Impuesto(double Ingresos) {
-
-	 }
+	 public abstract double calcular(double ingresos);
 
 }
