@@ -20,11 +20,11 @@ public class GestorAlmacen {
 			productos.add(producto);
 		}
 		else if(modificarProducto==AGREGRAR_PRODUCTO) {
-			throw new AddProductoException("Imposible añadir");
+			throw new Exception("Imposible añadir");
 		}
 		else if(modificarProducto==ELIMINAR_PRODUCTO) {
-			throw new EliminarProductoException("Imposible eliminar");
+			throw new Exception("Imposible eliminar");
 			}
-		else throw new OperacionException("Operacion no soportada");
+		else throw new Exception("Operacion no soportada");
 	}
 }
