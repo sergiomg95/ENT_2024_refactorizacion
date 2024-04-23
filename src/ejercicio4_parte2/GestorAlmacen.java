@@ -11,21 +11,20 @@ public class GestorAlmacen {
 	private List<String> productos = new ArrayList<>();
 
 	public void modificarProducto(String producto, int modificarProducto) throws Exception {
-		switch (modificarProducto) {
-		case AGREGRAR_PRODUCTO:
-			if (!productos.contains(producto)) {
-				productos.add(producto);
-				System.out.println("Producto '" + producto + "' agregado al almacén.");
-			} else {
-				throw new Exception("El producto '" + producto + "' ya existe en el almacén.");
+		
+		
+		if (productos.contains(producto)&&modificarProducto==ELIMINAR_PRODUCTO) {
+			productos.remove(producto);
+		}
+		else if(!productos.contains(producto)&&modificarProducto==AGREGRAR_PRODUCTO) {
+			productos.add(producto);
+		}
+		else if(modificarProducto==AGREGRAR_PRODUCTO) {
+			throw new AddProductoException("Imposible añadir");
+		}
+		else if(modificarProducto==ELIMINAR_PRODUCTO) {
+			throw new EliminarProductoException("Imposible eliminar");
 			}
-		case ELIMINAR_PRODUCTO:
-			if (productos.contains(producto)) {
-				productos.remove(producto);
-				System.out.println("Producto '" + producto + "' eliminado del almacén.");
-			} else {
-				throw new Exception("El producto '" + producto + "' no existe en el almacén.");
-			}
-			default:throw new Exception("Producto invalido");		}
+		else throw new OperacionException("Operacion no soportada");
 	}
 }
