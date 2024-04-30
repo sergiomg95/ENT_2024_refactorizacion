@@ -1,12 +1,11 @@
 package ejercicio5;
 
-public class Cliente {
+public abstract class  Cliente {
 
 	    private String nombre;
 	    private String apellido;
-	    private String direccion;
-	    private String ciudad;
-	    private String codigoPostal;
+	    private Direccion direccion;
+	   
 
 	    // Getters y setters
 
@@ -18,17 +17,23 @@ public class Cliente {
 	        this.apellido = apellido;
 	    }
 
-	    public void setDireccion(String direccion) {
-	        this.direccion = direccion;
-	    }
+	   
+		public String getNombre() {
+			return nombre;
+		}
 
-	    public void setCiudad(String ciudad) {
-	        this.ciudad = ciudad;
-	    }
+		public String getApellido() {
+			return apellido;
+		}
 
-	    public void setCodigoPostal(String codigoPostal) {
-	        this.codigoPostal = codigoPostal;
-	    }
-	
+		public Direccion getDireccion() {
+			return direccion;
+		}
+
+		public void setDireccion(Direccion direccion) {
+			this.direccion = direccion;
+		}
+
+		
 
 }
